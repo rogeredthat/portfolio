@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "calvrix";
-$password = "Calvrix!7!";
-$dbname = "calvrix";
+$servername = "sql3.freemysqlhosting.net";
+$username = "sql3110358";
+$password = "iZrvX7ii7C";
+$dbname = "sql3110358";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
