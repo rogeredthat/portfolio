@@ -294,12 +294,8 @@ $('#nav').mouseout(function(){
 
 //Nav Dot track
 window.onscroll=function(){
-    $('#underlay').css({'margin-top':'-'+(window.scrollY/2)+'px'});
+    $('#underlay').css({'margin-left':'-'+(window.scrollY/2)+'px'});
     y=window.scrollY;
-    if(y<h/2||(y>(3*h/2)&&y<(5*h/2)))
-        $('#nav>li').css({'background':'rgba(255,255,255,0.8)'});
-    else
-        $('#nav>li').css({'background':'rgba(0,0,0,0.8)'});
     navList[Math.floor(y/h)].activate();
 }
 $('#titling').mousemove(function(){
