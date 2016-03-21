@@ -412,7 +412,7 @@ $('#ham_icon').click(function(){
     else
     {
         $('#projects').animate({'left':'100vw','margin-left':'0px'},500);
-        window.scrollTo(0,0);
+        window.scrollTop=0;
         $('.slide.content').hide();
         $('body').css({'overflow':"hidden"});
     }
