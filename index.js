@@ -403,5 +403,17 @@ $('#ham_icon').click(function(){
     $(this).toggleClass('ham');
     $(this).toggleClass('cross');
     explode=!explode;
-    $(this).hasClass('cross')?$('#projects').animate({'left':'20vh'},500):$('#projects').animate({'left':'150vh','margin-left':'0px'},500);
+    if($(this).hasClass('cross'))
+    {
+        $('#projects').animate({'left':'20vw'},500);
+        $('.slide.content').show();
+        $('body').css({'overflow':"visible"});
+    }
+    else
+    {
+        $('#projects').animate({'left':'100vw','margin-left':'0px'},500);
+        window.scrollTo(0,0);
+        $('.slide.content').hide();
+        $('body').css({'overflow':"hidden"});
+    }
 });
