@@ -6,9 +6,12 @@
         <script src="../hosted/scripts/jquery-ui.min.js"></script>
         <link rel="stylesheet" type="text/css" href="../hosted/stylesheets/jquery-ui.css"/>
         <link rel="stylesheet" type="text/css" href="../hosted/fonts/material-icons/font.css"/>
+        <link rel="stylesheet" type="text/css" href="../hosted/fonts/Font%20Awesome/font.css"/>
         <link rel="stylesheet" type="text/css" href="index.css"/>
+        <link rel="stylesheet" type="text/css" href="../hosted/stylesheets/generate_ham.css"/>
     </head>
     <body>
+        <div id='ham_icon'></div>
         <audio id='audio' src='landing.audio/colors.mp3' volume=1></audio>
         <div id='underlay'>
         </div>
@@ -32,34 +35,70 @@
                 <canvas id='titlePlexus'></canvas>
             </div>
             <div class='slide content'>
-                <div>
-                    <div>
-                        <div class="project">
+                <div></div>
+            </div>
+            <div class='slide'>
+            </div>
+            <div class='slide content'>
+                <div></div>
+            </div>
+            <div class='slide'>
+            </div>
+            <div class='slide content'>
+                <div></div>
+            </div>
+            <div class='slide'>
+            </div>
+        </div>
+        <div id='projects'>
+            <div class="project"></div>
+            <div class="project">
                             <div class="top">
                                 <div class="screen">
-                                    <div class="picture"></div>
+                                    <div class="picture" style="background-image: url('landing.img/ytredesign.jpg');box-shadow:0px 0px 0px 50vw rgba(140,39,39,0.7) inset;"></div>
                                 </div>
                             </div>
                             <div class="bottom">
-                                <span class='title'>YouTube Redesign Concept</span>
+                                <span class='title'>YouTube Redesign<br>Concept</span>
                                 <span class='icon material-icons'>all_inclusive</span>
-                                <span class='link'>VIEW PROJECT</span>
+                                <span class='link'><a href="">VIEW PROJECT</a></span>
                             </div>
                         </div>
-                    </div>
-                </div>
+            <div class="project">
+                            <div class="top">
+                                <div class="screen">
+                                    <div class="picture" style="background-image: url('landing.img/peepolProfile.jpg');box-shadow:0px 0px 0px 50vw rgba(61,102,159,0.7) inset;"></div>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <span class='title'>Social Web UX<br>Design</span>
+                                <span class='icon material-icons'>all_inclusive</span>
+                                <span class='link'><a href="">VIEW PROJECT</a></span>
+                            </div>
             </div>
-            <div class='slide'>
+            <div class="project">
+                            <div class="top">
+                                <div class="screen">
+                                    <div class="picture" style="background-image: url('landing.img/github.png');box-shadow:0px 0px 0px 50vw rgba(120,169,139,0.7) inset;"></div>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <span class='title'>Github<br>Repositories</span>
+                                <span class='icon' style="font-family:'FontAwesome';font-size:24px;">&#xf09b;</span>
+                                <span class='link'><a href="http://www.github.com/roggeredthat/">GO TO PROFILE</a></span>
+                            </div>
             </div>
-            <div class='slide content'>
-                <div></div>
-            </div>
-            <div class='slide'>
-            </div>
-            <div class='slide content'>
-                <div></div>
-            </div>
-            <div class='slide'>
+            <div class="project">
+                            <div class="top">
+                                <div class="screen">
+                                    <div class="picture" style="background-image: url('landing.img/codepen.jpg');box-shadow:0px 0px 0px 50vw rgba(39,39,39,0.7) inset;"></div>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <span class='title'>Codepen<br>Collections</span>
+                                <span class='icon' style="font-family:'FontAwesome';font-size:24px;">&#xf1cb;</span>
+                                <span class='link'><a href="http://www.codepen.io/calvrix/">GO TO PROFILE</a></span>
+                            </div>
             </div>
         </div>
         <div id='nav'>
@@ -79,4 +118,5 @@
     </body>
     <script src="title.json"></script>
     <script src="index.js"></script>
+    <script src="../hosted/scripts/generate_ham.js"></script>
 </html>

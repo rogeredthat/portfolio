@@ -1,8 +1,10 @@
 textAlpha=1;
 refresh=true;
 player=false;
+explode=false;
 trackNo=1;
 flag=0;
+toggleMenu=document.getElementById('ham_icon');
 playerRad=$('#titling').width()*0.5;
 canvas=document.getElementById('titlePlexus');
 text=document.getElementById('titleArray');
@@ -63,6 +65,18 @@ for(i=0;i<raster.points.length;i++)
     else if(i%4==3)
             rasterUpdated.points.push({x:w/2,y:(Math.random()*h)-(h/2)});
     }
+var rasterTarget={points:[]};
+    for(i=0;i<raster.points.length;i++)
+    {
+        if(i%4==0)
+            rasterTarget.points.push({x:Math.random()*w-(w/2),y:-h/2});
+    else if(i%4==2)
+            rasterTarget.points.push({x:-w/2,y:(Math.random()*h)-h/2});
+    else if(i%4==1)
+            rasterTarget.points.push({x:(Math.random()*w)-(w/2),y:h/2});
+    else if(i%4==3)
+            rasterTarget.points.push({x:w/2,y:(Math.random()*h)-(h/2)});
+    }
 
 //Where we'll be next
 function update()
@@ -79,7 +93,7 @@ function update()
             if(n.eta>=n.life&&(n.loops>=n.allowed))
                 arr.splice(i,1);
         }
-    if(!player)
+    if(!player && !explode)
     for(i=0;i<raster.points.length;i++)
         {
             refresh=false;
@@ -102,7 +116,7 @@ function update()
                 rasterUpdated.points[i].y+=diffY/5;
             }
         }
-    else{
+    else if(!explode){
             refresh=true;
             for(i=0;i<rasterUpdated.points.length;i++)
             {
@@ -110,6 +124,17 @@ function update()
                 cY=spectrum.points[i].y;
                 rasterUpdated.points[i].x+=(cX-rasterUpdated.points[i].x)/5;
                 rasterUpdated.points[i].y+=(cY-rasterUpdated.points[i].y)/5;
+            }
+        }
+    else
+        {
+            refresh=true;
+            for(i=0;i<rasterUpdated.points.length;i++)
+            {
+                cX=rasterTarget.points[i].x;
+                cY=rasterTarget.points[i].y;
+                rasterUpdated.points[i].x+=(cX-rasterUpdated.points[i].x)/10;
+                rasterUpdated.points[i].y+=(cY-rasterUpdated.points[i].y)/10;
             }
         }
         for(i=0;i<raster.points.length;i++)
@@ -160,7 +185,7 @@ function draw()
 {
     if(refresh==true){
         textcontext.clearRect(0,0,w,h);
-        if(!player)
+        if(!player || explode)
         {   for(n=0;n<4;n++)
                 for(i=n;i<raster.points.length;i+=4)
                 {
@@ -295,6 +320,7 @@ $('#nav').mouseout(function(){
 //Nav Dot track
 window.onscroll=function(){
     $('#underlay').css({'margin-left':'-'+(window.scrollY/2)+'px'});
+    $('#projects').css({'margin-left':'-'+(window.scrollY)+'px'});
     y=window.scrollY;
     navList[Math.floor(y/h)].activate();
 }
@@ -371,4 +397,11 @@ $('#buttonUp').click(function(){trackNo=Math.max(1,trackNo-1);});
 $('.change_track').click(function(){
     xmlhttp.open("GET","requestTrack.php?id="+trackNo,true);
     xmlhttp.send();
+});
+
+$('#ham_icon').click(function(){
+    $(this).toggleClass('ham');
+    $(this).toggleClass('cross');
+    explode=!explode;
+    $(this).hasClass('cross')?$('#projects').animate({'left':'20vh'}):$('#projects').animate({'left':'150vh'});
 });
