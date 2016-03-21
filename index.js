@@ -116,7 +116,7 @@ function update()
                 rasterUpdated.points[i].y+=diffY/5;
             }
         }
-    else if(!explode){
+    else if(player){
             refresh=true;
             for(i=0;i<rasterUpdated.points.length;i++)
             {
@@ -126,15 +126,15 @@ function update()
                 rasterUpdated.points[i].y+=(cY-rasterUpdated.points[i].y)/5;
             }
         }
-    else
+    else if(explode)
         {
             refresh=true;
             for(i=0;i<rasterUpdated.points.length;i++)
             {
                 cX=rasterTarget.points[i].x;
                 cY=rasterTarget.points[i].y;
-                rasterUpdated.points[i].x+=(cX-rasterUpdated.points[i].x)/10;
-                rasterUpdated.points[i].y+=(cY-rasterUpdated.points[i].y)/10;
+                rasterUpdated.points[i].x+=(cX-rasterUpdated.points[i].x)/7;
+                rasterUpdated.points[i].y+=(cY-rasterUpdated.points[i].y)/7;
             }
         }
         for(i=0;i<raster.points.length;i++)
@@ -403,5 +403,5 @@ $('#ham_icon').click(function(){
     $(this).toggleClass('ham');
     $(this).toggleClass('cross');
     explode=!explode;
-    $(this).hasClass('cross')?$('#projects').animate({'left':'20vh'}):$('#projects').animate({'left':'150vh'});
+    $(this).hasClass('cross')?$('#projects').animate({'left':'20vh'},500):$('#projects').animate({'left':'150vh','margin-left':'0px'},500);
 });
