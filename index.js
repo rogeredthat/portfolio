@@ -128,7 +128,7 @@ function update()
         }
     else if(explode)
         {
-            refresh=true;
+            refresh=false;
             for(i=0;i<rasterUpdated.points.length;i++)
             {
                 cX=rasterTarget.points[i].x;
@@ -139,7 +139,7 @@ function update()
         }
         for(i=0;i<raster.points.length;i++)
             {
-                if(Math.floor(raster.points[i].x-rasterUpdated.points[i].x)>0||Math.floor(raster.points[i].y-rasterUpdated.points[i].y)>0)
+                if((Math.floor(raster.points[i].x-rasterUpdated.points[i].x)>0||Math.floor(raster.points[i].y-rasterUpdated.points[i].y)>0)&&(Math.floor(rasterTarget.points[i].x-rasterUpdated.points[i].x)>0||Math.floor(rasterTarget.points[i].y-rasterUpdated.points[i].y)>0))
                     {refresh=true;break;}
             }
     draw();
